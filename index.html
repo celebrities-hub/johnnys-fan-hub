@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Johnny's Fan Hub - A place for all fans of our beloved celebrity!">
+    <meta property="og:title" content="Johnny's Fan Hub">
+    <meta property="og:description" content="Join our community and stay updated with the latest news!">
+    <meta property="og:image" content="path/to/image.jpg">
+    <meta property="og:url" content="https://example.com">
+    <title>Johnny's Fan Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .dark-mode { background-color: #121212; color: white; }
+        .light-mode { background-color: white; color: black; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Johnny's Fan Hub</h1>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+    </header>
+    <main>
+        <section>
+            <h2>Newsletter Signup</h2>
+            <form id="newsletterForm">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <h2>Follow Us</h2>
+        <ul>
+            <li><a href="https://facebook.com" aria-label="Follow us on Facebook">Facebook</a></li>
+            <li><a href="https://twitter.com" aria-label="Follow us on Twitter">Twitter</a></li>
+            <li><a href="https://instagram.com" aria-label="Follow us on Instagram">Instagram</a></li>
+        </ul>
+    </footer>
+    <script>
+        const toggleButton = document.getElementById('darkModeToggle');
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.body.classList.toggle('dark-mode', currentTheme === 'dark');
+        }
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>
